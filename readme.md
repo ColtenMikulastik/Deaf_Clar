@@ -1,2 +1,2 @@
-##Deafening Clarion
-a simple CLI network scanning tool written in python
+## Deafening Clarion
+A simple CLI network scanning tool written in python.
