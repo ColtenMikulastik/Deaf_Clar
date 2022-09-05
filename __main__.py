@@ -29,14 +29,20 @@ def scan_from_q(q, target):
 
 def main():
     # ask for user input
+    print("---------------------------------------") 
     target = input("Enter the host to be scanned: ")
     print("starting scan on host: " + target)
+    min_port = input("what starting port would you would like to scan?")
+    max_port = input("what is the last port you would like to scan?")
+    print("---------------------------------------")
+    
+
 
     # create queue
     q = queue.Queue()
 
-    # create list, with ports 1-500
-    list_var = [j for j in range(1,500)]
+    # create list, with ports based on user input
+    list_var = [j for j in range(int(min_port), int(max_port))]
     
     # fill the q with the list values
     fill_q(q, list_var)
