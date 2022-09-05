@@ -9,7 +9,7 @@ def fill_q(q, list_var):
     for i in list_var:
         q.put(i)
 
-def scan_from_q(q, target):
+def scan_from_q(q, target, open_ports):
     # loop throught the q 
     while not(q.empty()):
         # pull element from q
@@ -24,6 +24,7 @@ def scan_from_q(q, target):
         if conn == 0:
             # print the result only if success
             print(f"Port {i} is open")
+            open_ports.append(i)
         s.close()
 
 
@@ -47,11 +48,13 @@ def main():
     # fill the q with the list values
     fill_q(q, list_var)
     
+    # create a list to store open ports in 
+    open_ports = []
     # create a list to store threads
     threads = []
     # create a bunch of thread objects, and add to list
     for i in range(0,10):
-        thread = threading.Thread(target=scan_from_q, args=[q, target])
+        thread = threading.Thread(target=scan_from_q, args=[q, target, open_ports])
         threads.append(thread)
 
     # start their functions
@@ -64,6 +67,8 @@ def main():
     
     #notify about success
     print("finished")
+    print(f"the open ports are :{open_ports}")
+
 
 
 
