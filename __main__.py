@@ -33,10 +33,10 @@ def main():
     print("---------------------------------------") 
     target = input("Enter the host to be scanned: ")
     print("starting scan on host: " + target)
-    min_port = input("what starting port would you would like to scan?")
-    max_port = input("what is the last port you would like to scan?")
+    min_port = input("what starting port would you would like to scan: ")
+    max_port = input("what is the last port you would like to scan: ")
     print("---------------------------------------")
-    
+    print("beginning scan...")
 
 
     # create queue
@@ -53,7 +53,7 @@ def main():
     # create a list to store threads
     threads = []
     # create a bunch of thread objects, and add to list
-    for i in range(0,10):
+    for i in range(0,100):
         thread = threading.Thread(target=scan_from_q, args=[q, target, open_ports])
         threads.append(thread)
 
@@ -67,7 +67,7 @@ def main():
     
     #notify about success
     print("finished")
-    print(f"the open ports are :{open_ports}")
+    print(f"the open ports are: {open_ports}")
 
 
 
