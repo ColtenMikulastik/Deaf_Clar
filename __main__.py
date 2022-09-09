@@ -39,7 +39,8 @@ def main():
     print("---------------------------------------")
     print("beginning scan...")
 
-
+    # common ports const
+    common_ports = 500
     # create queue
     q = queue.Queue()
 
