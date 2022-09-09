@@ -35,6 +35,7 @@ def main():
     print("starting scan on host: " + target)
     min_port = input("what starting port would you would like to scan: ")
     max_port = input("what is the last port you would like to scan: ")
+    common_port_bool = input("Would you like to scan all common ports?: ")
     print("---------------------------------------")
     print("beginning scan...")
 
