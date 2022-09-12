@@ -35,17 +35,20 @@ def main():
     print("starting scan on host: " + target)
     min_port = input("what starting port would you would like to scan: ")
     max_port = input("what is the last port you would like to scan: ")
-    common_port_bool = input("Would you like to scan all common ports?: ")
+    common_port_flag = input("Would you like to scan all common ports?: ")
     print("---------------------------------------")
     print("beginning scan...")
 
     # common ports const
-    common_ports = 500
+    common_ports = 1023
     # create queue
     q = queue.Queue()
 
-    # create list, with ports based on user input
-    list_var = [j for j in range(int(min_port), int(max_port))]
+    if common_port_flag == 'y':
+        list_var = [j for j in range(1,common_ports)]
+    else:
+        # create list, with ports based on user input
+        list_var = [j for j in range(int(min_port), int(max_port))]
     
     # fill the q with the list values
     fill_q(q, list_var)
