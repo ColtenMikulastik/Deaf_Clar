@@ -36,6 +36,7 @@ def main():
     min_port = input("what starting port would you would like to scan: ")
     max_port = input("what is the last port you would like to scan: ")
     common_port_flag = input("Would you like to scan all common ports?: ")
+    write_to_file_flag = input("Would you like to write output to a file?: ")
     print("---------------------------------------")
     print("beginning scan...")
 
@@ -74,6 +75,8 @@ def main():
     print("finished")
     print(f"the open ports are: {open_ports}")
 
+    if write_to_file_flag == 'y':
+	print("writing to file...")
 
 
 
