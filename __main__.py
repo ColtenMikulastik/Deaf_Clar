@@ -4,6 +4,12 @@ import queue
 import threading
 
 
+# function used to write to a file
+def write_to_file(file_name, lst_info):
+    with open(file_name, 'w') as f:
+        for line in lst_info:
+            f.write(str(line))
+
 
 def fill_q(q, list_var):
     for i in list_var:
@@ -76,7 +82,8 @@ def main():
     print(f"the open ports are: {open_ports}")
 
     if write_to_file_flag == 'y':
-	print("writing to file...")
+        print("writing to file...")
+        write_to_file("output.txt", open_ports)
 
 
 
